@@ -1,4 +1,4 @@
-# Asp.NET Core-2.1 Customize Login Form
+# ASP.NET Core-2.1 : Customize Login Form
 This project demonstrate how to extend IdentityUser class and IdentityRole class to add customize field and role. It also shows how to customize Log-in form and Register form Layout using scaffolding. The sample of implementing multiple step registration form will also show in this project.
 
 #### Output of the Project
@@ -955,14 +955,14 @@ Right click on the _**wwwroot\js**_ select _**add / new item**_ and add javascri
 
 The following javascript code will add _**fa-initialized**_ attribute to body and this will display the page.
 
-`registerForm.closest('body').attr('fa-initialized', 'true');` {.language-javascript} 
+`registerForm.closest('body').attr('fa-initialized', 'true');` {:.language-javascript} 
 
 
 
 The following javascript code will ensure to get correct step if server validation is fail and page is refreshed.
 
 `if ((!isNaN(stepInput.val())) && (Number(stepInput.val()) > 0)) $scope.step = Number(stepInput.val());    
-else $scope.step = 1;`{.language-javascript}
+else $scope.step = 1;`{:.language-javascript}
 
 The full javascript for controlling multi-step registration process.
 
