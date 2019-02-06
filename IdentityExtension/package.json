@@ -1,0 +1,17 @@
+{
+  "name": "IdentityExtension",
+  "version": "1.0.0",
+  "description": "Identity Extension",
+  "main": "index.js",
+  "dependencies": {
+    "less": "^3.9.0",
+    "npm": "^6.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Albert Cho",
+  "license": "ISC"
+}

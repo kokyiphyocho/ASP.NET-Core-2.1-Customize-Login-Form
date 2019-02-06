@@ -1,0 +1,118 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@section page_css
+    {
+    <link rel="stylesheet" href="~/css/form_register.css" type="text/css" asp-append-version="true" />
+
+}
+
+@section page_script
+{
+    <script src="~/js/form_register.js" asp-append-version="true"></script>
+}
+
+<div class="form_register" ng-app="registerApp" ng-controller="registerController">
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h4>Create a new account.</h4>
+                <div class="stepinfo">{{ stepinfo }}</div>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group" ng-hide="true">
+                    <label asp-for="Input.Step"></label>
+                    <input asp-for="Input.Step" class="form-control" ng-model="step"/>
+                    <span asp-validation-for="Input.Step" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" ng-show="step==1">
+                    <label asp-for="Input.FirstName"></label>
+                    <input asp-for="Input.FirstName" class="form-control" />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==1">
+                    <label asp-for="Input.LastName"></label>
+                    <input asp-for="Input.LastName" class="form-control" />
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==1">
+                    <label asp-for="Input.Gender"></label>
+                    <select asp-for="Input.Gender" asp-items="Html.GetEnumSelectList<RegisterModel.Gender>()" class="form-control"></select>
+                    <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==1">
+                    <label asp-for="Input.DateofBirth"></label>
+                    <input asp-for="Input.DateofBirth" class="form-control" />
+                    <span asp-validation-for="Input.DateofBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==3">
+                    <label asp-for="Input.MobileContact"></label>
+                    <input asp-for="Input.MobileContact" class="form-control" />
+                    <span asp-validation-for="Input.MobileContact" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==3">
+                    <label asp-for="Input.HomeContact"></label>
+                    <input asp-for="Input.HomeContact" class="form-control" />
+                    <span asp-validation-for="Input.HomeContact" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==2">
+                    <label asp-for="Input.StreetAddress"></label>
+                    <input asp-for="Input.StreetAddress" class="form-control" />
+                    <span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==2">
+                    <label asp-for="Input.City"></label>
+                    <input asp-for="Input.City" class="form-control" />
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==2">
+                    <label asp-for="Input.PostalCode"></label>
+                    <input asp-for="Input.PostalCode" class="form-control" />
+                    <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==2">
+                    <label asp-for="Input.Province"></label>
+                    <input asp-for="Input.Province" class="form-control" />
+                    <span asp-validation-for="Input.Province" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==2">
+                    <label asp-for="Input.Country"></label>
+                    <input asp-for="Input.Country" class="form-control" />
+                    <span asp-validation-for="Input.Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" ng-show="step==3">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==3">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group" ng-show="step==3">
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="button" class="btn _prevbtn" ng-show="step>1" ng-click="previousStep()">&ltPrevious</button>
+                <button type="button" class="btn" ng-show="step<3" ng-click="nextStep()">Next&gt</button>
+                <button type="submit" class="btn btn-default" ng-show="step==3">Register</button>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

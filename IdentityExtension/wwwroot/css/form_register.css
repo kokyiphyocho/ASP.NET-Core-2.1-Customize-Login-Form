@@ -1,0 +1,52 @@
+﻿body:not([fa-initialized])
+{
+    display: none;
+}
+
+.form_register {
+    padding: 15px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
+
+    -webkit-box-shadow: 0 0 5px #eee;
+    -moz-box-shadow: 0 0 5px #eee;
+    box-shadow: 0 0 5px #eee;
+}
+
+@media (min-width: 992px) {
+    .form_register {
+        padding: 15px;
+        width: 30%;
+    }
+}
+
+.form_register h2,
+.form_register .row 
+{
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.form_register .row .col-md-4 
+{
+    width: 100%;
+}
+
+.form_register .btn
+{
+    width : 100px;
+    float : right;
+}
+
+.form_register ._prevbtn
+{
+    float : left;
+}
+
+/*.form_register form:not([fa-initialized]) .row .form-group 
+{
+    display: none;
+}*/
