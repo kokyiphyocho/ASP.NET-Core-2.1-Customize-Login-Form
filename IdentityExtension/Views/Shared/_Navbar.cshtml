@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
 
 @if ((SignInManager.IsSignedIn(User)) || (ViewData["Title"].ToString() == "Home Page"))
 {
