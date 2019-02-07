@@ -1059,7 +1059,7 @@ both _**Development**_ and _**Staging / Production**_ sections.
 
 ...
 ```
-_
+
 After adding reference to AngularJS javascript libarary, the customization process is successfully done.
 
 
