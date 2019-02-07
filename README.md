@@ -465,7 +465,7 @@ The below code block shows how our _Navbar.cshtml look like.
 
 #### Customizing Login Page
 ##### Removing Right Panel
-Open file _**Areas\Identity\Pages\Account\Login.cshtml.cshtml**_, remove the right panel div tag, 
+Open file _**Areas\Identity\Pages\Account\Login.cshtml**_, remove the right panel div tag, 
 *&lt;div class="col-md-6 col-md-offset-2"&gt;* .
 ```HTML
 <div class="col-md-6 col-md-offset-2">
@@ -476,7 +476,7 @@ Open file _**Areas\Identity\Pages\Account\Login.cshtml.cshtml**_, remove the rig
 ```
 ##### Add page_css Section and Wrapper Div
 
-Add _**"@section page_css"**_ section before &lt;h2&gt; tag, as shown in the following code block. 
+Inside the _**Login.cshtml**_ file, add _**"@section page_css"**_ section before &lt;h2&gt; tag, as shown in the following code block. 
 This section will load customize css file named form_login.css for styling.
 
 ```HTML
@@ -577,7 +577,8 @@ Finally, we need to javascript with AngularJS and jQuery for controlling script 
 
 ##### Modifying RegisterModel class
 
-Add Enum called Gender at the top of the RegisterModel class. This enum will be use by Gender select tag as option values.
+Add Enum called Gender at the top of the RegisterModel class which reside in _**Areas\Identity\Pages\Account\Register.cshtml.cs**_. 
+This enum will be use by Gender select tag as option values.
  
 ```C#
 public class RegisterModel : PageModel
@@ -718,11 +719,11 @@ public async Task<IActionResult> OnPostAsync(string returnUrl = null)
 }
 ```
 
-##### Modifying RegisterModel class
+##### Modifying Register Razor Page
 
 <u>**Add page_css Section and Wrapper Div**</u>
 
-Add _**"@section page_css"**_ section and _**"@section page_script"**_ before &lt;h2&gt; tag, as shown in the 
+Inside the _**register.cshtml**_ file, add _**"@section page_css"**_ section and _**"@section page_script"**_ before &lt;h2&gt; tag, as shown in the 
 following code block. These sections will load customize css file named form_register.css and 
 customized javascript file form_register.js respectively.
 
@@ -951,7 +952,7 @@ body:not([fa-initialized])
 ```
 
 ##### Creating Javascript file
-Right click on the _**wwwroot\js**_ select _**add / new item**_ and add javascript file named form_register.js.
+Right click on the _**wwwroot\js**_ select _**add / new item**_ and add javascript file named _**form_register.js**_.
 
 The following javascript code will add _**fa-initialized**_ attribute to body and this will display the page.
 
@@ -1030,7 +1031,36 @@ registerApp.controller('registerController', function ($scope) {
 });
 ```
 
-After javascript file is created, the customization process is successfully done.
+##### Modifying _Layout.cshtml file
+
+Inside _**_Layout.cshtml**_ file, add script tag for angularjs javascript library in 
+both _**Development**_ and _**Staging / Production**_ sections.
+
+```HTML
+    <environment include="Development">
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+    </environment>
+
+    ...
+
+    <environment exclude="Development">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
+            asp-fallback-src="~/lib/angular/dist/angular-min.js"
+            crossorigin="anonymous">
+    </script>
+
+    </environment>
+
+...
+```
+_
+After adding reference to AngularJS javascript libarary, the customization process is successfully done.
 
 
 Kyi Phyo Cho@Albert Cho
